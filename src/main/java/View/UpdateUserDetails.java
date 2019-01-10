@@ -25,7 +25,6 @@ public class UpdateUserDetails extends HomePage implements Observer {
     public javafx.scene.control.TextField txtfld_lastName;
     public javafx.scene.control.TextField txtfld_Address;
     public javafx.scene.control.TextField txtfld_email;
-    public javafx.scene.image.ImageView pictureView;
     public javafx.scene.control.ComboBox combo_box_day;
     public javafx.scene.control.ComboBox combo_box_month;
     public javafx.scene.control.ComboBox combo_box_year;
@@ -77,6 +76,7 @@ public class UpdateUserDetails extends HomePage implements Observer {
     public void submit (){
         if (!validation()){
             alert("שדה אחד או יותר ריקים", Alert.AlertType.INFORMATION);
+            return;
         }
         else {
             String newUserName = txtfld_userName.getText().trim();
@@ -89,9 +89,10 @@ public class UpdateUserDetails extends HomePage implements Observer {
             String newEmail = txtfld_email.getText().trim();
             RegisteredUser updateRegisteredUser = new RegisteredUser(newUserName,newPassword,newFirstName,newLastName,newBirthday,newAddress,newEmail);
             String ans = controller.updatedDB(registeredUser.getUserName(), updateRegisteredUser,newPasswordReplay);
-            if (!ans.equals("פרטי החשבון עודכנו בהצלחה"))
+            if (!ans.equals("פרטי החשבון עודכנו בהצלחה")) {
                 alert(ans, Alert.AlertType.ERROR);
-            else{
+                return;
+            }else{
                 alert(ans, Alert.AlertType.INFORMATION);
                 stage.close();
             }
@@ -124,21 +125,19 @@ public class UpdateUserDetails extends HomePage implements Observer {
      * @return true if the registeredUser filled all the Text Fields, otherwise return false
      */
     private boolean validation() {
-        if (txtfld_userName.getText() == null || txtfld_userName.getText().trim().isEmpty())
+        if (txtfld_userName.getText() == null || txtfld_userName.getText().trim().isEmpty() || txtfld_userName.getText().trim().equals(""))
             return false;
-        if (txtfld_password.getText() == null || txtfld_password.getText().trim().isEmpty())
+        if (txtfld_password.getText() == null || txtfld_password.getText().trim().isEmpty() || txtfld_password.getText().trim().equals(""))
             return false;
-        if (txtfld_confirmPassword.getText() == null || txtfld_confirmPassword.getText().trim().isEmpty())
+        if (txtfld_confirmPassword.getText() == null || txtfld_confirmPassword.getText().trim().isEmpty() || txtfld_confirmPassword.getText().trim().equals(""))
             return false;
-        if (txtfld_firstName.getText() == null || txtfld_firstName.getText().trim().isEmpty())
+        if (txtfld_firstName.getText() == null || txtfld_firstName.getText().trim().isEmpty() || txtfld_firstName.getText().trim().equals(""))
             return false;
-        if (txtfld_lastName.getText() == null || txtfld_lastName.getText().trim().isEmpty())
+        if (txtfld_lastName.getText() == null || txtfld_lastName.getText().trim().isEmpty() ||  txtfld_lastName.getText().trim().equals(""))
             return false;
-        if (txtfld_Address.getText() == null || txtfld_Address.getText().trim().isEmpty())
+        if (txtfld_Address.getText() == null || txtfld_Address.getText().trim().isEmpty() || txtfld_Address.getText().trim().equals(""))
             return false;
-        if (txtfld_email.getText() == null || txtfld_email.getText().trim().isEmpty())
-            return false;
-        if (pictureView == null)
+        if (txtfld_email.getText() == null || txtfld_email.getText().trim().isEmpty() || txtfld_email.getText().trim().equals(""))
             return false;
         return true;
     }
@@ -148,19 +147,5 @@ public class UpdateUserDetails extends HomePage implements Observer {
 
     }
 
-    public void loadPicture(ActionEvent actionEvent) {
-        try {
-            FileChooser fileChooser = new FileChooser();
-            fileChooser.setTitle("Open Resource File");
-            fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif"));
-            File selectedFile = fileChooser.showOpenDialog(new Stage());
-            if (selectedFile != null) {
-                javafx.scene.image.Image image = new Image(selectedFile.toURI().toString());
-                pictureView.setImage(image);
-            }
-        }catch (Exception e){
-            e.getStackTrace();
-        }
-    }
 
 }

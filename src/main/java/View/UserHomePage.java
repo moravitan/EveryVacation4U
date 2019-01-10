@@ -127,7 +127,7 @@ public class UserHomePage extends HomePage {
     public void logOut(ActionEvent actionEvent){
         stage.close();
         controller.setUserName(null);
-        newStage("HomePage.fxml", "כניסת משתמש רשום", homePage, 995, 716,controller);
+        newStage("HomePage.fxml", "כניסת משתמש רשום", homePage, 944, 650,controller);
     }
 
     public void searchUser(){

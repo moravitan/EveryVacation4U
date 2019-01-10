@@ -24,17 +24,17 @@ public class UserModel extends Model {
             return "שם המשתמש שהזנת כבר קיים";
         }
         // Checking that both password text fields are equal
-        else if (registeredUser.getPassword().length() < 6 ){
+         if (registeredUser.getPassword().length() < 6 ){
             return "אורך סיסמה לא יכול להיות קטן מ 6 ספרות";
         }
-        else if (registeredUser.getPassword().length() > 9){
+         if (registeredUser.getPassword().length() > 9){
             return "אורך סיסמה לא יכול להיות גדול מ 8 ספרות";
         }
         // Checking that both password text fields are equal
-        else if (!registeredUser.getPassword().equals(confirmPassword)){
+         if (!registeredUser.getPassword().equals(confirmPassword)){
             return "הסיסמאות אינן תואמות";
         }
-        else if(!isValidEmail(registeredUser.getEmail()))
+         if(!isValidEmail(registeredUser.getEmail()))
             return "האימייל לא בפורמט הנכון";
         else{
             String insertStatement = "INSERT INTO Users (user_name, password, first_name, last_name, birthday, address, email) VALUES (?,?,?,?,?,?,?)";
@@ -124,11 +124,24 @@ public class UserModel extends Model {
      * @param registeredUser - all the parameters needed to be updated
      */
     public String updateUser(String oldUserName, RegisteredUser registeredUser, String confirmPassword) {
+        // Checking if the registeredUser name already exist in the data base
+       RegisteredUser ru = searchUsers(registeredUser.getUserName(), false);
+        if ( ru!= null){
+            if(!ru.getUserName().equals(oldUserName))
+                return "שם המשתמש שהזנת כבר קיים";
+        }
+        // Checking that both password text fields are equal
+        if (registeredUser.getPassword().length() < 6 ){
+            return "אורך סיסמה לא יכול להיות קטן מ 6 ספרות";
+        }
+        if (registeredUser.getPassword().length() > 9){
+            return "אורך סיסמה לא יכול להיות גדול מ 8 ספרות";
+        }
         // Checking that both password text fields are equal
         if(!registeredUser.getPassword().equals(confirmPassword)){
             return "הסיסמאות אינן תואמות";
         }
-        else if(!isValidEmail(registeredUser.getEmail()))
+        if(!isValidEmail(registeredUser.getEmail()))
             return "האימייל לא בפורמט הנכון";
         else{
             //registeredUser.updateUserDetails(registeredUser,oldUserName);
@@ -154,7 +167,7 @@ public class UserModel extends Model {
                 pstmt.setString(5, registeredUser.getBirthday()); // birthday
                 pstmt.setString(6, registeredUser.getAddress()); // address
                 pstmt.setString(7, registeredUser.getEmail()); // email
-                pstmt.setString(9, oldUserName); // registeredUser name - primary key
+                pstmt.setString(8, oldUserName); // registeredUser name - primary key
                 pstmt.executeUpdate();
             } catch (SQLException e) {
                 e.printStackTrace();

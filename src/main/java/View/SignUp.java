@@ -48,12 +48,15 @@ public class SignUp extends HomePage implements Observer {
 
         if (!validation()){
             alert("שדה אחד או יותר ריקים", Alert.AlertType.ERROR);
+            return;
         }
         else{
             RegisteredUser registeredUser = new RegisteredUser(userName,password,firstName,lastName,getBirthday(),address,email);
             String ans = controller.insertUser(registeredUser,confirmPassword);
-            if (!ans.equals("התחברת בהצלחה"))
+            if (!ans.equals("התחברת בהצלחה")) {
                 alert(ans, Alert.AlertType.ERROR);
+                return;
+            }
             else {
                 alert("התחברת בהצלחה", Alert.AlertType.INFORMATION);
                 stage.close();

@@ -7,48 +7,47 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane accessibleRole="BUTTON" prefHeight="716.0" prefWidth="995.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.HomePage">
+<AnchorPane accessibleRole="BUTTON" prefHeight="650.0" prefWidth="944.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.HomePage">
     <children>
-        <Label layoutX="269.0" layoutY="65.0" text="EveryVacation4U">
+        <Label layoutX="299.0" layoutY="53.0" text="EveryVacation4U">
             <font>
-                <Font name="Ink Free" size="70.0" />
+                <Font name="Ink Free" size="60.0" />
             </font>
         </Label>
-        <TextField fx:id="tf_origin" layoutX="776.0" layoutY="225.0" />
-        <Label layoutX="886.0" layoutY="198.0" text="מוצא:">
-            <font>
-                <Font name="Calibri Light" size="18.0" />
-            </font>
-        </Label>
-        <Label layoutX="732.0" layoutY="198.0" text="יעד:">
+        <TextField fx:id="tf_origin" layoutX="755.0" layoutY="206.0" />
+        <Label layoutX="865.0" layoutY="179.0" text="מוצא:">
             <font>
                 <Font name="Calibri Light" size="18.0" />
             </font>
         </Label>
-        <TextField fx:id="tf_destination" layoutX="617.0" layoutY="225.0" />
-        <DatePicker fx:id="dp_departure" layoutX="487.0" layoutY="225.0" prefHeight="25.0" prefWidth="123.0" />
-        <Label layoutX="563.0" layoutY="198.0" text="יציאה:">
+        <Label layoutX="711.0" layoutY="179.0" text="יעד:">
             <font>
                 <Font name="Calibri Light" size="18.0" />
             </font>
         </Label>
-        <Label layoutX="432.0" layoutY="198.0" text="חזרה:">
+        <TextField fx:id="tf_destination" layoutX="596.0" layoutY="206.0" />
+        <DatePicker fx:id="dp_departure" layoutX="466.0" layoutY="206.0" prefHeight="25.0" prefWidth="123.0" />
+        <Label layoutX="542.0" layoutY="179.0" text="יציאה:">
             <font>
                 <Font name="Calibri Light" size="18.0" />
             </font>
         </Label>
-        <DatePicker fx:id="dp_arrival" layoutX="353.0" layoutY="225.0" prefHeight="25.0" prefWidth="123.0" />
-        <TextField fx:id="tf_numOfTickets" layoutX="253.0" layoutY="225.0" prefHeight="25.0" prefWidth="92.0" promptText="מספר כרטיסים" />
-        <Button layoutX="86.0" layoutY="216.0" mnemonicParsing="false" onAction="#search" style="-fx-text-fill: CornflowerBlue; -fx-border-color: CornflowerBlue;" text="חפש חופשה">
+        <Label layoutX="411.0" layoutY="179.0" text="חזרה:">
+            <font>
+                <Font name="Calibri Light" size="18.0" />
+            </font>
+        </Label>
+        <DatePicker fx:id="dp_arrival" layoutX="332.0" layoutY="206.0" prefHeight="25.0" prefWidth="123.0" />
+        <TextField fx:id="tf_numOfTickets" layoutX="232.0" layoutY="206.0" prefHeight="25.0" prefWidth="92.0" promptText="מספר כרטיסים" />
+        <Button layoutX="65.0" layoutY="197.0" mnemonicParsing="false" onAction="#search" style="-fx-text-fill: CornflowerBlue; -fx-border-color: CornflowerBlue;" text="חפש חופשה">
             <font>
                 <Font name="Calibri Bold Italic" size="22.0" />
             </font>
         </Button>
-        <Button layoutX="86.0" layoutY="46.0" mnemonicParsing="false" onAction="#sellTickets" prefHeight="38.0" prefWidth="114.0" style="-fx-text-fill: CornflowerBlue;" text="מכר כרטיסים">
+        <Button layoutX="107.0" layoutY="47.0" mnemonicParsing="false" onAction="#sellTickets" prefHeight="22.0" prefWidth="112.0" style="-fx-text-fill: CornflowerBlue;" text="מכר כרטיסים">
             <font>
                 <Font size="15.0" />
             </font>
@@ -56,15 +55,14 @@
                 <Cursor fx:constant="DEFAULT" />
             </cursor>
         </Button>
-        <Button fx:id="btn_signIn" layoutX="107.0" layoutY="12.0" mnemonicParsing="false" onAction="#signIn" prefHeight="25.0" prefWidth="123.0" style="-fx-background-color: none; -fx-text-fill: DeepSkyBlue;" text="כניסה לחשבון קיים" />
-        <Button fx:id="btn_createUser" layoutX="230.0" layoutY="12.0" mnemonicParsing="false" onAction="#create" style="-fx-background-color: none; -fx-text-fill: DeepSkyBlue;" text="יצירת חשבון" />
-        <ImageView fx:id="iv_homePageImage" fitHeight="100.0" fitWidth="123.0" layoutX="192.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true" />
-        <Label layoutX="869.0" layoutY="282.0" text="לוח טיסות:">
+        <Button fx:id="btn_signIn" layoutX="54.0" layoutY="15.0" mnemonicParsing="false" onAction="#signIn" prefHeight="25.0" prefWidth="123.0" style="-fx-background-color: none; -fx-text-fill: DeepSkyBlue;" text="כניסה לחשבון קיים" />
+        <Button fx:id="btn_createUser" layoutX="180.0" layoutY="15.0" mnemonicParsing="false" onAction="#create" style="-fx-background-color: none; -fx-text-fill: DeepSkyBlue;" text="יצירת חשבון" />
+        <Label layoutX="842.0" layoutY="241.0" text="לוח טיסות:">
             <font>
                 <Font name="Calibri Light" size="18.0" />
             </font>
         </Label>
-        <TableView fx:id="flightBoard" layoutX="61.0" layoutY="313.0" prefHeight="162.0" prefWidth="881.0">
+        <TableView fx:id="flightBoard" layoutX="34.0" layoutY="272.0" prefHeight="162.0" prefWidth="881.0">
             <columns>
                 <TableColumn fx:id="buy" prefWidth="144.0" text="קנה חופשה" />
                 <TableColumn fx:id="price" prefWidth="100.0" style="-fx-alignment: CENTER;" text="מחיר" />
@@ -75,7 +73,7 @@
                 <TableColumn fx:id="origin" prefWidth="94.0" style="-fx-alignment: CENTER;" text="מוצא" />
             </columns>
         </TableView>
-        <TableView fx:id="exchangeBoard" layoutX="61.0" layoutY="515.0" prefHeight="162.0" prefWidth="881.0">
+        <TableView fx:id="exchangeBoard" layoutX="34.0" layoutY="474.0" prefHeight="162.0" prefWidth="881.0">
             <columns>
                 <TableColumn fx:id="buy1" prefWidth="144.0" style="-fx-alignment: CENTER;" text="החלף חופשה" />
                 <TableColumn fx:id="price1" prefWidth="100.0" style="-fx-alignment: CENTER;" text="מחיר" />
@@ -86,11 +84,11 @@
                 <TableColumn fx:id="origin1" prefWidth="94.0" style="-fx-alignment: CENTER;" text="מוצא" />
             </columns>
         </TableView>
-        <Label layoutX="862.0" layoutY="484.0" text="לוח החלפות:">
+        <Label layoutX="835.0" layoutY="443.0" text="לוח החלפות:">
             <font>
                 <Font name="Calibri Light" size="18.0" />
             </font>
         </Label>
-      <Button fx:id="btn_createUser1" layoutX="4.0" layoutY="12.0" mnemonicParsing="false" onAction="#searchUser" style="-fx-background-color: none; -fx-text-fill: DeepSkyBlue;" text="חפש משתמש קיים" />
+      <Button fx:id="btn_createUser1" layoutX="790.0" layoutY="28.0" mnemonicParsing="false" onAction="#searchUser" style="-fx-background-color: none; -fx-text-fill: DeepSkyBlue;" text="חפש משתמש קיים" />
     </children>
 </AnchorPane>
